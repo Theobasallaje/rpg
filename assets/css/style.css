@@ -1,0 +1,60 @@
+/* @font-face {
+    font-family: 'Justice'; /*a name to be used later
+    src: url("../fonts/justice_league/JUSTICE_LEAGUE.ttf");
+} */
+
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    font-family: 'Staatliches', cursive;
+    /* font-family: 'Justice'; */
+    font-weight: 300;
+    color: white;
+}
+
+#title{
+    font-size: 4em;
+}
+
+body {
+    background: url("../images/background.jpg") no-repeat;
+    background-size: cover;
+}
+
+
+#header {
+    height: 10vh;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    font-size: 3em;
+    margin-top: 10vh;
+    color: white;
+    /* bottom: 100px; */
+}
+
+#container{
+    /* background-color: rgba(255, 174, 0); */
+    background-color: rgb(255, 0, 0);
+    padding: 15px;
+    /* height: 80vh;
+    width: 80vw; */
+}
+
+p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
