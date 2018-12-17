@@ -1,31 +1,53 @@
-// Creates an okbject that lists out all of the players and their images
-var SuperMan = {
-    image: "../images/test.jpg", 
-    hp: 100, 
-    damage: 0, 
-    attackPowewr: 0,
-    counterAttackPower: 0,
-    playerStatus: "player"
+//object that holds the each character objects with their properties that lists out all of the players and their images
+var characters = {
+    heros: {
+        superMan: {
+        name: "Superman",
+        image: src="../images/superman.png", 
+        hp: 100, 
+        damage: 0, 
+        attackPowewr: 0,
+        counterAttackPower: 0
+        }
+    },
+    vilians: {
+        bizarro : {
+        name: "Bizzaro",
+        image: "../images/bizarro.png", 
+        hp: 100, 
+        damage: 0, 
+        attackPowewr: 0,
+        counterAttackPower: 0
+        }
+    }
 };
-//var randomArray = ["rock", "paper", "scissors"];
- var guessesArray = [];
- var dashes = [];
 
- // Creating variables. They start at 0.
- var wins = 0;
- var losses = 0;
- var guessCount = 0;
- var rand;
+//arryas
+ 
+
+ //global variables 
+ 
 
  // Create variables that hold references to the places in the HTML where we want to display things.
- var directionsText = document.getElementById("directions");
- var randomWords = document.getElementById("randomWord");
- var winsElement = document.getElementById("wins");
- var lossesElement = document.getElementById("losses");
- var guessCountElement = document.getElementById("guessCount");
- var guessElement = document.getElementById("userGuess");
+ var directionsText = $("#directions");
+ var player = $("#player");
+ var enemies = $("#enemies");
+ var fight = $("#fight");
+ var defend = $("#defend");
+ var defender = $("#defender");
+ var playerDamage = $("#playerDamage");
+ var defenderDamage = $("#defenderDamage");
 
-     // Randomly generates a word from the array.
+ $(document).ready(function() {
+    // $("player").click(function() {
+    //     player.append(characters.heros.image);
+    // });
+    player.append(characters.heros.image);
+ });
+
+
+/*
+// Randomly generates a word from the array.
 function randomWordGen(){
         var randomWord = randomArray[Math.floor(Math.random() * randomArray.length)];
         return randomWord;
@@ -115,3 +137,4 @@ function startGame(){
      directionsText.textContent = "Guess From the Original Justice League Members";
      }
  };
+ */
