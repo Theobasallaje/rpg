@@ -3,17 +3,17 @@ var characters = {
     heros: {
         superMan: {
         name: "Superman",
-        image: src="../images/superman.png", 
+        image: "../rpg/assets/images/superman.png", 
         hp: 100, 
         damage: 0, 
         attackPowewr: 0,
         counterAttackPower: 0
         }
     },
-    vilians: {
+    villains: {
         bizarro : {
         name: "Bizzaro",
-        image: "../images/bizarro.png", 
+        image: "../rpg/assets/images/bizarro.png", 
         hp: 100, 
         damage: 0, 
         attackPowewr: 0,
@@ -31,6 +31,9 @@ var characters = {
  // Create variables that hold references to the places in the HTML where we want to display things.
  var directionsText = $("#directions");
  var player = $("#player");
+ var superman = $("#superMan");
+ var bizarro = $("#bizarro");
+ var bizarro = $("#reverseFlash");
  var enemies = $("#enemies");
  var fight = $("#fight");
  var defend = $("#defend");
@@ -38,12 +41,35 @@ var characters = {
  var playerDamage = $("#playerDamage");
  var defenderDamage = $("#defenderDamage");
 
+ //functions
+//  function fight(){
+//     player.html("<img src=" + characters.heros.superMan.image + ">");       
+//  }
+
  $(document).ready(function() {
-    // $("player").click(function() {
-    //     player.append(characters.heros.image);
-    // });
-    player.append(characters.heros.image);
+    function selectCharacter(){
+        superman.click(function() {
+            player.append("<img src=" + characters.heros.superMan.image + ">");
+        });
+        bizarro.click(function() {
+            enemies.append("<img src=" + characters.villains.bizarro.image + ">");
+        });
+    } 
  });
+
+// manipulate multiple images at a time
+// var heroArr = Object.values(characters.heros);
+
+// console.log(Object.keys(characters.heros));
+
+// function createImgHolder(arr) {
+//   for (var i = 0; i < heroArr.length; i++) {
+//     var image = document.createElement("img");
+//     image.setAttribute("src", heroArr[i].image)
+//     console.log(heroArr[i].image);
+//   }
+// }
+
 
 
 /*
