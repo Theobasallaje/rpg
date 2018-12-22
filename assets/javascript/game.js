@@ -39,7 +39,8 @@ var characters = [superMan, bizarro, theFlash, reverseFlash]
 
  // Create global variables that hold references to the places in the HTML where we want to display things.
  var result = $("#result");
- var damageSelection = $("#damageSelecion");
+ var damageSelection = $("#damageSelection");
+ var reset = $("#reset");
  var player = $("#player");
  var characterDisplay = $("#characters");
  var superman = $("#superMan");
@@ -120,6 +121,7 @@ function populateCharacters(display){
 
  $(document).ready(function() {
     $("#button").click(function(){
+        damageSelection.show();
         playerOne.damage = playerOne.damage + enemy.counterAttackPower;
         playerOne.hp = playerOne.hp - enemy.counterAttackPower;
         enemy.damage = enemy.damage + playerOne.attackPower;
@@ -134,11 +136,13 @@ function populateCharacters(display){
         if (playerOne.hp <= 0){
             result.text("You have been defeated! GAME OVER..."); 
             damageSelection.hide();
+            reset.show();
         } 
         else if (enemy.hp <= 0){
             result.text(enemy.name + " is defeated!");
             defend.text("Defender");
             damageSelection.hide();
+            reset.show();
         }
     
         else{
@@ -152,6 +156,11 @@ function populateCharacters(display){
             // playerDamage.text(playerOne.damage);
             // defenderDamage.text(enemy.damage);
         }
+    });
+
+    reset.click(function(){
+        // populateCharacters(characterDisplay);
+        location.reload();    
     });
     
      populateCharacters(characterDisplay);
