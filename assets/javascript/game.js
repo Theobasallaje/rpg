@@ -131,11 +131,11 @@ function populateCharacters(display){
         playerDamage.text(playerOne.damage);
         defenderDamage.text(enemy.damage);
 
-        if (playerOne.hp === 0){
+        if (playerOne.hp <= 0){
             result.text("You have been defeated! GAME OVER..."); 
             damageSelection.hide();
         } 
-        else if (enemy.hp === 0){
+        else if (enemy.hp <= 0){
             result.text(enemy.name + " is defeated!");
             defend.text("Defender");
             damageSelection.hide();
