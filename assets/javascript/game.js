@@ -79,9 +79,9 @@ function populateCharacters(display){
         display
         .append(
             `<div data-index=${i} class="characters">
-            <div style="font-size:.5em; text-align:center">${characters[i].name}</div>
+            <div style="font-size:.5em;">${characters[i].name}</div>
             <img class="img" src=${characters[i].image} >
-            <div id="hp" style="font-size:.5em; text-align:center">${characters[i].hp}</div>
+            <div id="hp" style="font-size:.5em;">${characters[i].hp}</div>
             </div>`
             );
     }
@@ -96,9 +96,9 @@ function populateCharacters(display){
             player
             .append(
                 `<div  class="characters">
-                <div style="font-size:.5em; text-align:center">${playerOne.name}</div>
+                <div style="font-size:.5em;">${playerOne.name}</div>
                 <img src=${playerOne.image} >
-                <div id="playerhp" style="font-size:.5em; text-align:center">${playerOne.hp}</div>
+                <div id="playerhp" style="font-size:.5em;">${playerOne.hp}</div>
                 </div>`
                 );
             populateCharacters(enemies);
@@ -108,9 +108,9 @@ function populateCharacters(display){
             defend 
             .append(
                 `<div  class="characters">
-                <div style="font-size:.5em; text-align:center">${enemy.name}</div>
+                <div style="font-size:.5em;">${enemy.name}</div>
                 <img src=${enemy.image} >
-                <div id="defenderhp" style="font-size:.5em; text-align:center">${enemy.hp}</div>
+                <div id="defenderhp" style="font-size:.5em;">${enemy.hp}</div>
                 </div>`
                 );
             populateCharacters(enemies);

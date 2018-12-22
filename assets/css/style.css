@@ -53,10 +53,10 @@ body {
     width: 80vw; */
 }
 
-.img{
+/* .img{
     display: flex;
     justify-content: center;
-}
+} */
 
 p{
     margin-top: 10px;
@@ -68,9 +68,10 @@ p{
 }
 
 .characters {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 5px;
     margin: 5px;
+    /* text-align:center */
 }
 #enemies {
     display: flex;
