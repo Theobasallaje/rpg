@@ -58,18 +58,28 @@ var characters = [superMan, bizarro, theFlash, reverseFlash]
 
  //functions
 
+// function appendCharacters(){
+//     this
+//     .append(
+//         `<div  class="characters">
+//         <div>${this.name}</div>
+//         <img src=${this.image} >
+//         <div>${this.hp}</div>
+//         </div>`
+//         );
+// }
+
 function populateCharacters(display){
     display.empty();
     console.log("In populate characters")
     for (var i=0; i<characters.length; i++){
         console.log(characters[i].image)
-      
         display
         .append(
             `<div data-index=${i} class="characters">
-            <div>${characters[i].name}</div>
-            <img src=${characters[i].image} >
-            <div>${characters[i].hp}</div>
+            <div style="font-size:.5em; text-align:center">${characters[i].name}</div>
+            <img class="img" src=${characters[i].image} >
+            <div style="font-size:.5em; text-align:center">${characters[i].hp}</div>
             </div>`
             );
     }
@@ -80,23 +90,25 @@ function populateCharacters(display){
             playerOne = characters.splice(index, 1)[0]
             console.log(playerOne)
             characterDisplay.empty()
+            // appendCharacters()
             player
             .append(
                 `<div  class="characters">
-                <div>${playerOne.name}</div>
+                <div style="font-size:.5em; text-align:center">${playerOne.name}</div>
                 <img src=${playerOne.image} >
-                <div>${playerOne.hp}</div>
+                <div style="font-size:.5em; text-align:center">${playerOne.hp}</div>
                 </div>`
                 );
             populateCharacters(enemies);
         } else {
             enemy = characters.splice(index, 1)[0]
+            // appendCharacters()
             defend 
             .append(
                 `<div  class="characters">
-                <div>${enemy.name}</div>
+                <div style="font-size:.5em; text-align:center">${enemy.name}</div>
                 <img src=${enemy.image} >
-                <div>${enemy.hp}</div>
+                <div style="font-size:.5em; text-align:center">${enemy.hp}</div>
                 </div>`
                 );
             populateCharacters(enemies);
@@ -116,13 +128,14 @@ function populateCharacters(display){
             result.text("You have been defeated! GAME OVER...");    
         } 
         else if (enemy.hp === 0){
-            result.text("You saved the day!");
+            result.text(enemy.name + " is defeated!");
+            defend.text("Defender");
         }
     
-        else if (!(playerOne.hp === 0 && enemy.hp === 0)){
+        else{
             // console.log(playerOne.hp);
             // console.log(playerOne.damage);
-            console.log(playerOne.attackPower);
+            // console.log(playerOne.attackPower);
             
             // console.log(enemy.hp);
             defender.text(enemy.name);
