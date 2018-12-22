@@ -39,6 +39,7 @@ var characters = [superMan, bizarro, theFlash, reverseFlash]
 
  // Create global variables that hold references to the places in the HTML where we want to display things.
  var result = $("#result");
+ var damageSelection = $("#damageSelecion");
  var player = $("#player");
  var characterDisplay = $("#characters");
  var superman = $("#superMan");
@@ -79,7 +80,7 @@ function populateCharacters(display){
             `<div data-index=${i} class="characters">
             <div style="font-size:.5em; text-align:center">${characters[i].name}</div>
             <img class="img" src=${characters[i].image} >
-            <div style="font-size:.5em; text-align:center">${characters[i].hp}</div>
+            <div id="hp" style="font-size:.5em; text-align:center">${characters[i].hp}</div>
             </div>`
             );
     }
@@ -96,7 +97,7 @@ function populateCharacters(display){
                 `<div  class="characters">
                 <div style="font-size:.5em; text-align:center">${playerOne.name}</div>
                 <img src=${playerOne.image} >
-                <div style="font-size:.5em; text-align:center">${playerOne.hp}</div>
+                <div id="playerhp" style="font-size:.5em; text-align:center">${playerOne.hp}</div>
                 </div>`
                 );
             populateCharacters(enemies);
@@ -108,7 +109,7 @@ function populateCharacters(display){
                 `<div  class="characters">
                 <div style="font-size:.5em; text-align:center">${enemy.name}</div>
                 <img src=${enemy.image} >
-                <div style="font-size:.5em; text-align:center">${enemy.hp}</div>
+                <div id="defenderhp" style="font-size:.5em; text-align:center">${enemy.hp}</div>
                 </div>`
                 );
             populateCharacters(enemies);
@@ -123,13 +124,21 @@ function populateCharacters(display){
         playerOne.hp = playerOne.hp - enemy.counterAttackPower;
         enemy.damage = enemy.damage + playerOne.attackPower;
         enemy.hp = enemy.hp - playerOne.attackPower;
+        $("#playerhp").text(playerOne.hp);
+        $("#defenderhp").text(enemy.hp);
+        defender.text(enemy.name);
+        defender2.text(enemy.name);
+        playerDamage.text(playerOne.damage);
+        defenderDamage.text(enemy.damage);
 
         if (playerOne.hp === 0){
-            result.text("You have been defeated! GAME OVER...");    
+            result.text("You have been defeated! GAME OVER..."); 
+            damageSelection.hide();
         } 
         else if (enemy.hp === 0){
             result.text(enemy.name + " is defeated!");
             defend.text("Defender");
+            damageSelection.hide();
         }
     
         else{
@@ -138,10 +147,10 @@ function populateCharacters(display){
             // console.log(playerOne.attackPower);
             
             // console.log(enemy.hp);
-            defender.text(enemy.name);
-            defender2.text(enemy.name);
-            playerDamage.text(playerOne.damage);
-            defenderDamage.text(enemy.damage);
+            // defender.text(enemy.name);
+            // defender2.text(enemy.name);
+            // playerDamage.text(playerOne.damage);
+            // defenderDamage.text(enemy.damage);
         }
     });
     
