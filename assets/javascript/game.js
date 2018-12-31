@@ -4,8 +4,8 @@ var superMan =  {
     image: "../rpg/assets/images/superman.png", 
     hp: 250, 
     damage: 0, 
-    attackPower: 50,
-    counterAttackPower: 50
+    attackPower: 55,
+    counterAttackPower: 55
 }
 var bizarro =  {
     name: "Bizzaro",
@@ -21,8 +21,8 @@ var theFlash = {
     image: "../rpg/assets/images/flash.jpg", 
     hp: 150, 
     damage: 0, 
-    attackPower: 25,
-    counterAttackPower: 25
+    attackPower: 35,
+    counterAttackPower: 35
 }
 
 var reverseFlash = {
@@ -56,6 +56,7 @@ var characters = [superMan, bizarro, theFlash, reverseFlash]
 
  var playerOne;
  var enemy;
+ var isDefender = false;
 //  var chosenCharacter;
 
  //functions
@@ -103,8 +104,12 @@ function populateCharacters(display){
                 );
             populateCharacters(enemies);
         } else {
-            enemy = characters.splice(index, 1)[0]
+            console.log("outside if: " + isDefender);
             // appendCharacters()
+            if(!isDefender){
+            isDefender = true;
+            enemy = characters.splice(index, 1)[0]
+            console.log("inside if: " + isDefender);
             defend 
             .append(
                 `<div  class="characters">
@@ -114,6 +119,7 @@ function populateCharacters(display){
                 </div>`
                 );
             populateCharacters(enemies);
+            }
         }
     
     });
@@ -132,6 +138,9 @@ function populateCharacters(display){
         defender2.text(enemy.name);
         playerDamage.text(playerOne.damage);
         defenderDamage.text(enemy.damage);
+        console.log(playerOne.attackPower);
+        console.log(enemy.CounterAttackPower);
+        playerOne.attackPower += 5;
 
         if (playerOne.hp <= 0){
             result.text("You have been defeated! GAME OVER..."); 
@@ -142,6 +151,7 @@ function populateCharacters(display){
             result.text(enemy.name + " is defeated!");
             defend.text("Defender");
             damageSelection.hide();
+            isDefender = false;
             reset.show();
         }
     
