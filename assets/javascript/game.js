@@ -136,7 +136,7 @@ function populateCharacters(display){
         $("#defenderhp").text(enemy.hp);
         defender.text(enemy.name);
         defender2.text(enemy.name);
-        playerDamage.text(playerOne.damage);
+        playerDamage.text(enemy.counterAttackPower);
         defenderDamage.text(enemy.damage);
         console.log(playerOne.attackPower);
         console.log(enemy.CounterAttackPower);
